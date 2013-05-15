@@ -8,13 +8,13 @@ import struct, math,sys
 def bucketsort( A):
 	code = hashing(len(A))
 	buckets = [list() for _ in range( code )]
-#	print code[1]
+	bucks=len(buckets)
 	for i in range(0,len(A),1):		
-		x = re_hashing(A[i], i, len(buckets))
+		x = re_hashing(A[i], i, bucks)
 		buckets[x].append( A[i] )
-	print len(buckets)
-	for x  in range(0,len( buckets)):
-		print len(buckets[x])
+	#print len(buckets)
+	for x  in range(0,bucks):
+		print "Bucket %d , size: %d"%(x,len(buckets[x]))
 		buckets[x]=merge_sort(buckets[x])
 	ndx=0
 	for b in range( len( buckets ) ):
